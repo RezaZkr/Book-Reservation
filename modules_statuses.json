@@ -4,5 +4,6 @@
     "General": true,
     "Branch": true,
     "Book": true,
-    "Attribute": true
+    "Attribute": true,
+    "Reservation": true
 }
