@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Modules\Book\Database\Seeders\BookSeeder;
 
 return new class extends Migration {
     /**
@@ -18,6 +19,12 @@ return new class extends Migration {
             $table->unique(['title', 'author']);
             $table->timestamps();
         });
+
+        Artisan::call('db:seed', [
+            '--class' => BookSeeder::class,
+            '--force' => app()->isLocal(),
+        ]);
+
     }
 
     /**

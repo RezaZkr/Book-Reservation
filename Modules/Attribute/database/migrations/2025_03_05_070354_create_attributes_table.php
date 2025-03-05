@@ -3,7 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Modules\Branch\Database\Seeders\BranchSeeder;
 
 return new class extends Migration {
     /**
@@ -11,16 +10,11 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('branches', function (Blueprint $table) {
+        Schema::create('attributes', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('title')->index()->unique();
             $table->timestamps();
         });
-
-        Artisan::call('db:seed', [
-            '--class' => BranchSeeder::class,
-            '--force' => app()->isLocal(),
-        ]);
     }
 
     /**
@@ -28,6 +22,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('branches');
+        Schema::dropIfExists('attributes');
     }
 };

@@ -3,5 +3,6 @@
     "Auth": true,
     "General": true,
     "Branch": true,
-    "Book": true
+    "Book": true,
+    "Attribute": true
 }

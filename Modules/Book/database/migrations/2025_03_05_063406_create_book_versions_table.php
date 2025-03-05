@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Modules\Book\Database\Seeders\BookVersionSeeder;
 use Modules\Book\Enums\BookVersionConditionEnum;
 use Modules\Book\Enums\BookVersionStatusEnum;
 use Modules\Book\Models\Book;
@@ -20,6 +21,12 @@ return new class extends Migration {
             $table->boolean('vip')->default(false);
             $table->timestamps();
         });
+
+        Artisan::call('db:seed', [
+            '--class' => BookVersionSeeder::class,
+            '--force' => app()->isLocal(),
+        ]);
+
     }
 
     public function down(): void

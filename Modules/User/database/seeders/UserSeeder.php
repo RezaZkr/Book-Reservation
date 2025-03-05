@@ -12,9 +12,10 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         for ($i = 1; $i <= 5; $i++) {
-            User::query()->create([
+            User::query()->firstOrCreate([
+                'email' => 'user' . $i . '@example.com',
+            ], [
                 'name'     => 'User ' . $i,
-                'email'    => 'user' . $i . '@example.com',
                 'type'     => UserTypeEnum::NORMAL,
                 'password' => Hash::make(12345678),
             ]);
