@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->string('name');
             $table->string('email')->unique();
             $table->string('type', 20)->default(UserTypeEnum::NORMAL);
-            $table->unsignedTinyInteger('penalty_points')->default(0);
+            $table->unsignedMediumInteger('penalty_points')->default(0);
             $table->boolean('restricted')->default(false);
             $table->string('password');
             $table->timestamps();

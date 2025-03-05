@@ -24,6 +24,7 @@ return new class extends Migration {
             $table->string('receive_status', 25)->nullable();
             $table->timestamp('loan_date');
             $table->timestamp('expiration_date');
+            $table->timestamp('return_date')->nullable();
             $table->timestamps();
         });
     }

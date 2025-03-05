@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->foreignIdFor(User::class)->index()->constrained()->cascadeOnUpdate()->nullOnDelete();
             $table->foreignIdFor(Branch::class)->index()->constrained()->cascadeOnUpdate()->nullOnDelete();
             $table->foreignIdFor(BookVersion::class)->index()->constrained()->cascadeOnUpdate()->nullOnDelete();
-            $table->unsignedTinyInteger('user_penalty_point')->default(0);
+            $table->unsignedMediumInteger('user_penalty_point')->default(0);
             $table->string('status', 25)->default(ReservationStatusEnum::PENDING);
             $table->timestamps();
         });
