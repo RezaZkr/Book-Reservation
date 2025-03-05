@@ -8,8 +8,6 @@ use Illuminate\Notifications\Notifiable;
 use Modules\User\Enums\UserTypeEnum;
 use Laravel\Sanctum\HasApiTokens;
 
-
-
 class User extends Authenticatable
 {
     use HasFactory, Notifiable,HasApiTokens;

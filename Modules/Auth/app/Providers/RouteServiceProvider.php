@@ -1,13 +1,13 @@
 <?php
 
-namespace Modules\User\Providers;
+namespace Modules\Auth\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
 class RouteServiceProvider extends ServiceProvider
 {
-    protected string $name = 'User';
+    protected string $name = 'Auth';
 
     /**
      * Called before routes are registered.

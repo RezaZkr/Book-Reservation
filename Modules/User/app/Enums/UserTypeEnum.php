@@ -10,8 +10,8 @@ enum UserTypeEnum: string
     public function label(): string
     {
         return match ($this) {
-            self::NORMAL => trans('user::enum.user_type' . self::NORMAL->value),
-            self::VIP => trans('user::enum.user_type' . self::VIP->value),
+            self::NORMAL => trans('user::enum.user_type.' . self::NORMAL->value),
+            self::VIP => trans('user::enum.user_type.' . self::VIP->value),
             default => 'unknown'
         };
     }
