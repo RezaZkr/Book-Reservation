@@ -1,5 +1,7 @@
 {
     "User": true,
     "Auth": true,
-    "General": true
+    "General": true,
+    "Branch": true,
+    "Book": true
 }
