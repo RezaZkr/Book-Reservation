@@ -8,6 +8,9 @@ class PenaltyRule extends Model
 {
     const int NEGATIVE_DAMAGE_POINT = 10;
     const int NEGATIVE_REPEAT_VIOLATION_POINT = 5;
+    const int MAXIMUM_PENALTY_POINT = 100;
+
+    const string PENALTY_CACHE_KEY = 'penalty_cache_key';
 
     protected $fillable = [
         'delay_days',

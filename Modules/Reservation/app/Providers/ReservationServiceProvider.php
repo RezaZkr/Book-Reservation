@@ -5,7 +5,9 @@ namespace Modules\Reservation\Providers;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Modules\Reservation\Interfaces\Api\V1\LoanRepositoryInterface;
+use Modules\Reservation\Interfaces\Api\V1\ReservationRepositoryInterface;
 use Modules\Reservation\Repositories\Api\V1\LoanRepository;
+use Modules\Reservation\Repositories\Api\V1\ReservationRepository;
 use Nwidart\Modules\Traits\PathNamespace;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
@@ -39,6 +41,7 @@ class ReservationServiceProvider extends ServiceProvider
         $this->app->register(EventServiceProvider::class);
         $this->app->register(RouteServiceProvider::class);
         $this->app->bind(LoanRepositoryInterface::class, LoanRepository::class);
+        $this->app->bind(ReservationRepositoryInterface::class, ReservationRepository::class);
     }
 
     /**

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Str;
+use Modules\General\Enums\QueueEnum;
 
 return [
 
@@ -183,7 +184,7 @@ return [
     'defaults' => [
         'supervisor-1' => [
             'connection'          => 'redis',
-            'queue'               => ['default'],
+            'queue'               => [QueueEnum::DEFAULT],
             'balance'             => 'auto',
             'autoScalingStrategy' => 'time',
             'maxProcesses'        => 1,
@@ -194,11 +195,47 @@ return [
             'timeout'             => 60,
             'nice'                => 0,
         ],
+        'supervisor-2' => [
+            'connection'          => 'redis',
+            'queue'               => [QueueEnum::NOTIFICATIONS],
+            'balance'             => 'auto',
+            'autoScalingStrategy' => 'time',
+            'maxProcesses'        => 1,
+            'maxTime'             => 0,
+            'maxJobs'             => 0,
+            'memory'              => 128,
+            'tries'               => 1,
+            'timeout'             => 60,
+            'nice'                => 0,
+        ],
+        'supervisor-3' => [
+            'connection'          => 'redis',
+            'queue'               => [QueueEnum::DELAYED_LOANS],
+            'balance'             => 'auto',
+            'autoScalingStrategy' => 'time',
+            'maxProcesses'        => 1,
+            'maxTime'             => 0,
+            'maxJobs'             => 0,
+            'memory'              => 128,
+            'tries'               => 1,
+            'timeout'             => 1800,//30 min
+            'nice'                => 0,
+        ],
     ],
 
     'environments' => [
         'production' => [
             'supervisor-1' => [
+                'maxProcesses'    => 10,
+                'balanceMaxShift' => 1,
+                'balanceCooldown' => 3,
+            ],
+            'supervisor-2' => [
+                'maxProcesses'    => 10,
+                'balanceMaxShift' => 1,
+                'balanceCooldown' => 3,
+            ],
+            'supervisor-3' => [
                 'maxProcesses'    => 10,
                 'balanceMaxShift' => 1,
                 'balanceCooldown' => 3,

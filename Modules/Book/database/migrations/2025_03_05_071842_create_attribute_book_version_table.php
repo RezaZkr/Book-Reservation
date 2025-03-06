@@ -21,7 +21,7 @@ return new class extends Migration {
             $table->foreignIdFor(Value::class)->index()->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('attribute_title');
             $table->string('value_title');
-            $table->unique(['book_version_id', 'attribute_id', 'value_id']);
+            $table->unique(['book_version_id', 'attribute_id']);
             $table->timestamps();
         });
 

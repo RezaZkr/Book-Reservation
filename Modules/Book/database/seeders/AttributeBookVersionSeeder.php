@@ -22,8 +22,8 @@ class AttributeBookVersionSeeder extends Seeder
                 AttributeBookVersion::query()->firstOrCreate([
                     'book_version_id' => $bookVersion->id,
                     'attribute_id'    => $value->attribute_id,
-                    'value_id'        => $value->id,
                 ], [
+                    'value_id'        => $value->id,
                     'attribute_title' => $value->attribute->title,
                     'value_title'     => $value->title,
                 ]);

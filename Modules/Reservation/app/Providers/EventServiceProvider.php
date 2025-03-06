@@ -3,6 +3,10 @@
 namespace Modules\Reservation\Providers;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use Modules\Reservation\Events\BookLoanEvent;
+use Modules\Reservation\Events\BookLoanReturnEvent;
+use Modules\Reservation\Listeners\BookLoanListener;
+use Modules\Reservation\Listeners\BookLoanReturnListener;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -11,7 +15,14 @@ class EventServiceProvider extends ServiceProvider
      *
      * @var array<string, array<int, string>>
      */
-    protected $listen = [];
+    protected $listen = [
+        BookLoanEvent::class       => [
+            BookLoanListener::class,
+        ],
+        BookLoanReturnEvent::class => [
+            BookLoanReturnListener::class
+        ],
+    ];
 
     /**
      * Indicates if events should be discovered.
