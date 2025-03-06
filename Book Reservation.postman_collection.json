@@ -1,0 +1,1291 @@
+{
+	"info": {
+		"_postman_id": "df103f6a-9ca9-4097-8cea-a97e7d3f1481",
+		"name": "Book Reservation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16788986",
+		"_collection_link": "https://blue-firefly-192182.postman.co/workspace/%D8%A2%D9%81%D9%84%D8%A7%DB%8C%D9%86~155563de-9f87-49d0-b8be-874ea6ea7733/collection/16788986-df103f6a-9ca9-4097-8cea-a97e7d3f1481?action=share&source=collection_link&creator=16788986"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "V1",
+					"item": [
+						{
+							"name": "Login",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "user1@example.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/v1/auth/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Login",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "email",
+													"value": "user1@example.com",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "12345678",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{base_url}}/v1/auth/login",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"auth",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.3.9"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 05 Mar 2025 12:16:09 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"عملیات با موفقیت انجام شد.\",\n    \"status_code\": 200,\n    \"data\": {\n        \"auth\": {\n            \"access_token\": \"1|YebgL8Dk4d3BEOhRsUu4P6kIYszekXfxqRB2llgo67e43cef\",\n            \"ttl\": 3600,\n            \"expires_at\": \"2025-03-05 16:46:09\"\n        },\n        \"user\": {\n            \"id\": 1,\n            \"name\": \"User 1\",\n            \"email\": \"user1@example.com\",\n            \"type\": {\n                \"value\": \"normal\",\n                \"label\": \"عادی\"\n            },\n            \"penalty_points\": 0,\n            \"restricted\": false\n        }\n    }\n}"
+								},
+								{
+									"name": "Fail",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "email",
+													"value": "user1@example.com",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "12345678ب",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{base_url}}/v1/auth/login",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"auth",
+												"login"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.3.9"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 05 Mar 2025 12:47:00 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"اطلاعات وارد شده نادرست است.\",\n    \"status_code\": 401\n}"
+								}
+							]
+						},
+						{
+							"name": "Logout",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v1/auth/logout",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Logout",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/v1/auth/logout",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"auth",
+												"logout"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.3.9"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 05 Mar 2025 12:46:13 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"عملیات با موفقیت انجام شد.\",\n    \"status_code\": 200\n}"
+								}
+							]
+						},
+						{
+							"name": "me",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v1/auth/me",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"auth",
+										"me"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "me",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/v1/auth/me",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"auth",
+												"me"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.3.9"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 05 Mar 2025 12:46:49 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"عملیات با موفقیت انجام شد.\",\n    \"status_code\": 200,\n    \"data\": {\n        \"user\": {\n            \"id\": 1,\n            \"name\": \"User 1\",\n            \"email\": \"user1@example.com\",\n            \"type\": {\n                \"value\": \"vip\",\n                \"label\": \"ویژه\"\n            },\n            \"penalty_points\": 10,\n            \"restricted\": true\n        }\n    }\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Loan",
+			"item": [
+				{
+					"name": "V1",
+					"item": [
+						{
+							"name": "Loan",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "branch_id",
+											"value": "2",
+											"description": "شعبه",
+											"type": "text"
+										},
+										{
+											"key": "book_version_id",
+											"value": "1",
+											"description": "نسخه کتاب",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/v1/loan",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"loan"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "VIOLATION",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "branch_id",
+													"value": "2",
+													"description": "شعبه",
+													"type": "text"
+												},
+												{
+													"key": "book_version_id",
+													"value": "2",
+													"description": "نسخه کتاب",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{base_url}}/v1/loan",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"loan"
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.3.9"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 05 Mar 2025 12:47:32 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"بدلیل تخلف قادر به امانت کتاب نیستید.\",\n    \"status_code\": 403\n}"
+								},
+								{
+									"name": "Book Not Found in Branch",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "branch_id",
+													"value": "2",
+													"description": "شعبه",
+													"type": "text"
+												},
+												{
+													"key": "book_version_id",
+													"value": "2",
+													"description": "نسخه کتاب",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{base_url}}/v1/loan",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"loan"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.3.9"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 05 Mar 2025 12:48:27 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"کتاب مورد نظر در شعبه درخواستی وجود ندارد\",\n    \"status_code\": 404\n}"
+								},
+								{
+									"name": "Loan",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "branch_id",
+													"value": "2",
+													"description": "شعبه",
+													"type": "text"
+												},
+												{
+													"key": "book_version_id",
+													"value": "1",
+													"description": "نسخه کتاب",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{base_url}}/v1/loan",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"loan"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.3.9"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 05 Mar 2025 12:49:07 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"عملیات با موفقیت انجام شد.\",\n    \"status_code\": 200,\n    \"data\": {\n        \"loan\": {\n            \"id\": 3,\n            \"user_id\": 1,\n            \"branch_id\": \"2\",\n            \"book_version_id\": \"1\",\n            \"status\": {\n                \"value\": \"active\",\n                \"label\": \"فعال\"\n            },\n            \"loan_date\": {\n                \"timestamp\": 1741178947,\n                \"iso8601\": \"2025-03-05T16:19:07+03:30\",\n                \"iso\": \"2025-03-05T12:49:07.000000Z\",\n                \"diff\": \"0 ثانیه پیش\"\n            },\n            \"expiration_date\": {\n                \"timestamp\": 1742042947,\n                \"iso8601\": \"2025-03-15T16:19:07+03:30\",\n                \"iso\": \"2025-03-15T12:49:07.000000Z\",\n                \"diff\": \"1 هفته دیگر\"\n            },\n            \"give_status\": {\n                \"value\": \"new\",\n                \"label\": \"نو\"\n            },\n            \"receive_status\": null,\n            \"user\": {\n                \"id\": 1,\n                \"name\": \"User 1\",\n                \"email\": \"user1@example.com\",\n                \"type\": {\n                    \"value\": \"vip\",\n                    \"label\": \"ویژه\"\n                },\n                \"penalty_points\": 10,\n                \"restricted\": false\n            },\n            \"branch\": {\n                \"id\": 2,\n                \"title\": \"Branch 2\"\n            },\n            \"book_version\": {\n                \"branch_id\": 2,\n                \"book_id\": 1,\n                \"condition\": {\n                    \"value\": \"new\",\n                    \"label\": \"نو\"\n                },\n                \"status\": {\n                    \"value\": \"available\",\n                    \"label\": \"موجود\"\n                },\n                \"vip\": true\n            }\n        }\n    }\n}"
+								},
+								{
+									"name": "Reserve",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "branch_id",
+													"value": "2",
+													"description": "شعبه",
+													"type": "text"
+												},
+												{
+													"key": "book_version_id",
+													"value": "1",
+													"description": "نسخه کتاب",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{base_url}}/v1/loan",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"loan"
+											]
+										}
+									},
+									"status": "Not Acceptable",
+									"code": 406,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.3.9"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 05 Mar 2025 12:50:21 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"کتاب مورد نظر امانت داده شده است لطفا از قسمت رزرو اقدام به رزرو کتاب نمایید.\",\n    \"status_code\": 406\n}"
+								}
+							]
+						},
+						{
+							"name": "Return",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "loan_id",
+											"value": "21",
+											"description": "شناسه امانت",
+											"type": "text"
+										},
+										{
+											"key": "receive_status",
+											"value": "moderately_used",
+											"description": "وضعیت کتاب در زمان تحویل به شعبه یکی از وضعیت های new|moderately_used|damaged",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/v1/loan/return",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"loan",
+										"return"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "With Penalty Point",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "loan_id",
+													"value": "2",
+													"description": "شناسه امانت",
+													"type": "text"
+												},
+												{
+													"key": "receive_status",
+													"value": "damaged",
+													"description": "وضعیت کتاب در زمان تحویل به شعبه یکی از وضعیت های new|moderately_used|damaged",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{base_url}}/v1/loan/return",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"loan",
+												"return"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.3.9"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 05 Mar 2025 12:45:48 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"عملیات با موفقیت انجام شد.\",\n    \"status_code\": 200,\n    \"data\": {\n        \"message\": \"بدلیل جریمه 10 امتیاز منفی برای شما اعمال شد.\"\n    }\n}"
+								},
+								{
+									"name": "Return",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "loan_id",
+													"value": "4",
+													"description": "شناسه امانت",
+													"type": "text"
+												},
+												{
+													"key": "receive_status",
+													"value": "moderately_used",
+													"description": "وضعیت کتاب در زمان تحویل به شعبه یکی از وضعیت های new|moderately_used|damaged",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{base_url}}/v1/loan/return",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"loan",
+												"return"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.3.9"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 05 Mar 2025 12:58:40 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"عملیات با موفقیت انجام شد.\",\n    \"status_code\": 200,\n    \"data\": {\n        \"message\": \"کتاب با موفقیت تحویل شعبه شد.\"\n    }\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Reservation",
+			"item": [
+				{
+					"name": "V1",
+					"item": [
+						{
+							"name": "Reserve",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "branch_id",
+											"value": "2",
+											"description": "شعبه",
+											"type": "text"
+										},
+										{
+											"key": "book_version_id",
+											"value": "1",
+											"description": "نسخه کتاب",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/v1/reserve",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"reserve"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Loan",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "branch_id",
+													"value": "2",
+													"description": "شعبه",
+													"type": "text"
+												},
+												{
+													"key": "book_version_id",
+													"value": "1",
+													"description": "نسخه کتاب",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{base_url}}/v1/reserve",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"reserve"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.3.9"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 06 Mar 2025 04:54:22 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"عملیات با موفقیت انجام شد.\",\n    \"status_code\": 200,\n    \"data\": {\n        \"loan\": {\n            \"id\": 6,\n            \"user_id\": 1,\n            \"branch_id\": \"2\",\n            \"book_version_id\": \"1\",\n            \"status\": {\n                \"value\": \"active\",\n                \"label\": \"فعال\"\n            },\n            \"loan_date\": {\n                \"timestamp\": 1741236862,\n                \"iso8601\": \"2025-03-06T08:24:22+03:30\",\n                \"iso\": \"2025-03-06T04:54:22.000000Z\",\n                \"diff\": \"0 ثانیه پیش\"\n            },\n            \"expiration_date\": {\n                \"timestamp\": 1742100862,\n                \"iso8601\": \"2025-03-16T08:24:22+03:30\",\n                \"iso\": \"2025-03-16T04:54:22.000000Z\",\n                \"diff\": \"1 هفته دیگر\"\n            },\n            \"give_status\": {\n                \"value\": \"new\",\n                \"label\": \"نو\"\n            },\n            \"receive_status\": null,\n            \"user\": {\n                \"id\": 1,\n                \"name\": \"User 1\",\n                \"email\": \"user1@example.com\",\n                \"type\": {\n                    \"value\": \"normal\",\n                    \"label\": \"عادی\"\n                },\n                \"penalty_points\": 26,\n                \"restricted\": false\n            },\n            \"branch\": {\n                \"id\": 2,\n                \"title\": \"Branch 2\"\n            },\n            \"book_version\": {\n                \"id\": 1,\n                \"branch_id\": 2,\n                \"book_id\": 1,\n                \"condition\": {\n                    \"value\": \"new\",\n                    \"label\": \"نو\"\n                },\n                \"status\": {\n                    \"value\": \"loan\",\n                    \"label\": \"امانت داده شده\"\n                },\n                \"vip\": false,\n                \"attributes\": [\n                    {\n                        \"id\": 1,\n                        \"title\": \"Genre\",\n                        \"value\": \"Romance\"\n                    },\n                    {\n                        \"id\": 2,\n                        \"title\": \"Language\",\n                        \"value\": \"French\"\n                    },\n                    {\n                        \"id\": 3,\n                        \"title\": \"Age Group\",\n                        \"value\": \"Young\"\n                    },\n                    {\n                        \"id\": 4,\n                        \"title\": \"Size\",\n                        \"value\": \"Standard\"\n                    }\n                ]\n            }\n        }\n    }\n}"
+								},
+								{
+									"name": "Reserve",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "branch_id",
+													"value": "2",
+													"description": "شعبه",
+													"type": "text"
+												},
+												{
+													"key": "book_version_id",
+													"value": "1",
+													"description": "نسخه کتاب",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{base_url}}/v1/reserve",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"reserve"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.3.9"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 06 Mar 2025 05:31:27 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"عملیات با موفقیت انجام شد.\",\n    \"status_code\": 200,\n    \"data\": {\n        \"reserve\": {\n            \"id\": 4,\n            \"user_id\": 1,\n            \"branch_id\": \"2\",\n            \"book_version_id\": \"1\",\n            \"user_penalty_point\": 46,\n            \"status\": {\n                \"value\": \"pending\",\n                \"label\": \"درانتظار\"\n            },\n            \"user\": {\n                \"id\": 1,\n                \"name\": \"User 1\",\n                \"email\": \"user1@example.com\",\n                \"type\": {\n                    \"value\": \"normal\",\n                    \"label\": \"عادی\"\n                },\n                \"penalty_points\": 46,\n                \"restricted\": false\n            },\n            \"branch\": {\n                \"id\": 2,\n                \"title\": \"Branch 2\"\n            },\n            \"book_version\": {\n                \"id\": 1,\n                \"branch_id\": 2,\n                \"book_id\": 1,\n                \"condition\": {\n                    \"value\": \"new\",\n                    \"label\": \"نو\"\n                },\n                \"status\": {\n                    \"value\": \"loan\",\n                    \"label\": \"امانت داده شده\"\n                },\n                \"vip\": false,\n                \"attributes\": [\n                    {\n                        \"id\": 1,\n                        \"title\": \"Genre\",\n                        \"value\": \"Romance\"\n                    },\n                    {\n                        \"id\": 2,\n                        \"title\": \"Language\",\n                        \"value\": \"French\"\n                    },\n                    {\n                        \"id\": 3,\n                        \"title\": \"Age Group\",\n                        \"value\": \"Young\"\n                    },\n                    {\n                        \"id\": 4,\n                        \"title\": \"Size\",\n                        \"value\": \"Standard\"\n                    }\n                ]\n            }\n        }\n    }\n}"
+								},
+								{
+									"name": "Reserve Fail",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "branch_id",
+													"value": "2",
+													"description": "شعبه",
+													"type": "text"
+												},
+												{
+													"key": "book_version_id",
+													"value": "1",
+													"description": "نسخه کتاب",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{base_url}}/v1/reserve",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"reserve"
+											]
+										}
+									},
+									"status": "Not Acceptable",
+									"code": 406,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.3.9"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 06 Mar 2025 05:32:01 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"این کتاب را قبلا رزرو کرده\\u200cاید.\",\n    \"status_code\": 406\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000/api",
+			"type": "string"
+		},
+		{
+			"key": "access_token",
+			"value": "4|5mowb4IjZe6uQais45jJ4Y2mkM89gNT8T9oNB6ie27f2cf71",
+			"type": "string"
+		}
+	]
+}

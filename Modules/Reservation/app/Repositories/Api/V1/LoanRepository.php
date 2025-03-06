@@ -74,8 +74,6 @@ class LoanRepository implements LoanRepositoryInterface
                     'give_status'     => $bookVersion->condition,
                 ]);
 
-            ReservationCacheService::addBookVersionToLoanList($branchId, $bookVersionId);
-
             DB::commit();
 
             BookLoanEvent::dispatch($loan);
@@ -119,9 +117,6 @@ class LoanRepository implements LoanRepositoryInterface
         $loan->receive_status = $receiveStatus;
         $loan->return_date = now();
         $loan->save();
-
-
-        ReservationCacheService::removeBookVersionFromLoanList($loan->branch_id, $loan->book_version_id);
 
         BookLoanReturnEvent::dispatch($loan);
 
@@ -187,8 +182,6 @@ class LoanRepository implements LoanRepositoryInterface
 
             $reservation->status = ReservationStatusEnum::ACCEPTED;
             $reservation->save();
-
-            ReservationCacheService::addBookVersionToLoanList($reservation->branch_id, $reservation->book_version_id);
 
             DB::commit();
 
